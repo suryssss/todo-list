@@ -3,7 +3,6 @@ import { Trash2, Edit, CheckCircle2, Circle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
 import { Card } from '@/components/ui/card';
 import { Todo } from '../types/todo';
 import { useTheme } from 'next-themes';
@@ -85,7 +84,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }: TodoItemProps) => {
     >
       <Card className={`${getCardClass()} p-4 group hover-lift border-l-4 border-l-purple-500/20 hover:border-l-purple-500 transition-all duration-300`}>
         <div className="flex items-center gap-4">
-          {/* Custom checkbox with animation */}
           <motion.button
             onClick={handleToggle}
             whileHover={{ scale: 1.1 }}
@@ -116,8 +114,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }: TodoItemProps) => {
               )}
             </AnimatePresence>
           </motion.button>
-          
-          {/* Emoji display */}
           {todo.emoji && (
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
@@ -127,8 +123,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }: TodoItemProps) => {
               {todo.emoji}
             </motion.div>
           )}
-          
-          {/* Todo content */}
           <div className="flex-1 min-w-0">
             <AnimatePresence mode="wait">
               {isEditing ? (
@@ -166,8 +160,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }: TodoItemProps) => {
               )}
             </AnimatePresence>
           </div>
-          
-          {/* Action buttons */}
           <motion.div 
             className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0"
             initial={{ opacity: 0, x: 20 }}
@@ -197,8 +189,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }: TodoItemProps) => {
             </motion.div>
           </motion.div>
         </div>
-        
-        {/* Completion indicator */}
         <AnimatePresence>
           {todo.completed && (
             <motion.div
