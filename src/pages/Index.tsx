@@ -32,7 +32,7 @@ const Index = () => {
     setFilter,
   } = useTodos();
 
-  // Gamification state
+
   const [userProgress, setUserProgress] = useState<UserProgress>(loadUserProgress());
   const [showMotivationalMessage, setShowMotivationalMessage] = useState(false);
   const [motivationalType, setMotivationalType] = useState<'success' | 'add' | 'complete'>('success');
@@ -41,18 +41,17 @@ const Index = () => {
   const [hasShownConfetti, setHasShownConfetti] = useState(false);
   const { theme } = useTheme();
 
-  // Load user progress on mount
   useEffect(() => {
     const savedProgress = loadUserProgress();
     setUserProgress(savedProgress);
   }, []);
 
-  // Save user progress whenever it changes
+
   useEffect(() => {
     saveUserProgress(userProgress);
   }, [userProgress]);
 
-  // Check for confetti celebration
+  
   useEffect(() => {
     if (todos.length > 0 && todos.every(todo => todo.completed) && !hasShownConfetti) {
       setShowConfetti(true);
@@ -65,14 +64,14 @@ const Index = () => {
   const handleAddTodo = (title: string, emoji?: string) => {
     addTodo(title, emoji);
     
-    // Add XP for adding a task
+
     setUserProgress(prev => ({
       ...prev,
       totalTasksAdded: prev.totalTasksAdded + 1,
       ...addXP(XP_REWARDS.TASK_ADDED, prev)
     }));
 
-    // Show motivational message
+
     setMotivationalType('add');
     setShowMotivationalMessage(true);
   };
@@ -84,7 +83,7 @@ const Index = () => {
     toggleTodo(id);
     
     if (!wasCompleted) {
-      // Task was completed
+
       setUserProgress(prev => ({
         ...prev,
         totalTasksCompleted: prev.totalTasksCompleted + 1,
@@ -92,7 +91,7 @@ const Index = () => {
         ...updateStreak(prev)
       }));
 
-      // Show motivational message
+
       setMotivationalType('complete');
       setShowMotivationalMessage(true);
     }
@@ -154,7 +153,6 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen ${getBackgroundClass()} relative overflow-hidden`}>
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {theme === 'fun-mode' && (
           <>
@@ -211,25 +209,20 @@ const Index = () => {
             />
           </div>
         </motion.div>
-        
-        {/* Gamification Footer */}
+
         <Footer userProgress={userProgress} />
       </div>
 
-      {/* Motivational Message */}
       <MotivationalMessage
         show={showMotivationalMessage}
         onHide={handleMotivationalHide}
         type={motivationalType}
       />
 
-      {/* Confetti Celebration */}
       <ConfettiCelebration
         trigger={showConfetti}
         onComplete={handleConfettiComplete}
       />
-
-      {/* Unicorn Easter Egg */}
       <UnicornEasterEgg
         trigger={showUnicorn}
         onComplete={handleUnicornComplete}

@@ -78,7 +78,6 @@ const TodoFooter = ({ stats, filter, onFilterChange, onClearCompleted }: TodoFoo
       transition={{ duration: 0.5, delay: 0.3 }}
     >
       <div className={`${getCardClass()} p-6`}>
-        {/* Progress bar */}
         <motion.div 
           className="mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -100,7 +99,6 @@ const TodoFooter = ({ stats, filter, onFilterChange, onClearCompleted }: TodoFoo
         </motion.div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          {/* Stats */}
           <motion.div 
             className="flex items-center gap-3"
             initial={{ opacity: 0, x: -20 }}
@@ -117,8 +115,6 @@ const TodoFooter = ({ stats, filter, onFilterChange, onClearCompleted }: TodoFoo
               )}
             </div>
           </motion.div>
-          
-          {/* Filter buttons */}
           <motion.div 
             className={`flex gap-1 p-1 rounded-lg ${
               theme === 'candy-mode' 
@@ -151,8 +147,6 @@ const TodoFooter = ({ stats, filter, onFilterChange, onClearCompleted }: TodoFoo
               </motion.div>
             ))}
           </motion.div>
-          
-          {/* Clear completed button */}
           <AnimatePresence>
             {stats.completed > 0 && (
               <motion.div

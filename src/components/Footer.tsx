@@ -19,8 +19,6 @@ const Footer = ({ userProgress }: FooterProps) => {
   const currentLevel = getCurrentLevel(userProgress.xp);
   const progressToNext = getProgressToNextBadge(userProgress.xp);
   const progressToNextLevel = getProgressToNextLevel(userProgress.xp);
-
-  // Animate counters
   useEffect(() => {
     const animateCounter = (target: number, setter: (value: number) => void) => {
       const start = 0;
@@ -98,7 +96,6 @@ const Footer = ({ userProgress }: FooterProps) => {
               Level: <span className="font-semibold">{currentLevel}</span>
             </div>
             
-            {/* Progress to next level */}
             {progressToNextLevel.percentage < 100 && (
               <div className="space-y-2">
                 <div className="text-xs text-muted-foreground">
@@ -118,7 +115,6 @@ const Footer = ({ userProgress }: FooterProps) => {
             )}
           </div>
 
-          {/* Weekly XP Section */}
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
               <TrendingUp className="h-5 w-5 text-blue-500 animate-pulse" />
@@ -138,7 +134,6 @@ const Footer = ({ userProgress }: FooterProps) => {
             </div>
           </div>
 
-          {/* Current Streak Section */}
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
               <Flame className="h-5 w-5 text-orange-500 animate-streak-fire" />
@@ -160,7 +155,6 @@ const Footer = ({ userProgress }: FooterProps) => {
             </div>
           </div>
 
-          {/* Longest Streak Section */}
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
               <Target className="h-5 w-5 text-green-500 animate-pulse" />
@@ -183,7 +177,6 @@ const Footer = ({ userProgress }: FooterProps) => {
           </div>
         </div>
 
-        {/* Stats Summary */}
         <div className={`mt-6 pt-6 border-t ${
           theme === 'dark' ? 'border-gray-600' : 'border-gray-200'
         }`}>
@@ -212,7 +205,6 @@ const Footer = ({ userProgress }: FooterProps) => {
           </div>
         </div>
 
-        {/* Badges Display */}
         {userProgress.badges.length > 0 && (
           <div className={`mt-6 pt-6 border-t ${
             theme === 'dark' ? 'border-gray-600' : 'border-gray-200'
@@ -236,7 +228,7 @@ const Footer = ({ userProgress }: FooterProps) => {
           </div>
         )}
 
-        {/* Motivational Quote */}
+
         <div className="mt-6 text-center">
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
             theme === 'candy-mode'

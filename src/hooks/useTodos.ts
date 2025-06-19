@@ -8,13 +8,11 @@ export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<FilterType>('all');
 
-  // Load todos from localStorage on mount
   useEffect(() => {
     const savedTodos = loadTasks();
     setTodos(savedTodos);
   }, []);
 
-  // Save todos to localStorage whenever they change
   useEffect(() => {
     saveTasks(todos);
   }, [todos]);

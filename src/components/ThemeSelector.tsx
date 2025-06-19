@@ -77,8 +77,6 @@ const ThemeSelector = ({ currentTheme, onThemeChange }: ThemeSelectorProps) => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Backdrop */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

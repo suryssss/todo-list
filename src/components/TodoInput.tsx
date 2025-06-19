@@ -20,7 +20,6 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
-      // Check for unicorn easter egg
       if (title.toLowerCase().includes('unicorn')) {
         onUnicornTrigger?.();
       }
@@ -34,13 +33,11 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setTitle(value);
-    
-    // Check for unicorn easter egg as user types
+
     if (value.toLowerCase().includes('unicorn')) {
       onUnicornTrigger?.();
     }
 
-    // Suggest emoji based on content
     if (value.trim()) {
       const emoji = suggestEmojiForTask(value);
       setSuggestedEmoji(emoji);
@@ -94,8 +91,7 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
             onBlur={() => setIsFocused(false)}
             className={`${getInputClass()} h-14 text-lg pr-12 transition-all duration-300 hover:shadow-md focus:shadow-lg`}
           />
-          
-          {/* Animated border effect */}
+
           <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${
             isFocused 
               ? theme === 'candy-mode'
@@ -114,8 +110,7 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
               'bg-white'
             }`}></div>
           </div>
-          
-          {/* Input content */}
+
           <div className="relative z-10 flex items-center">
             <input
               type="text"
@@ -129,8 +124,7 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
                 theme === 'dark' ? 'text-black placeholder:text-gray-500' : ''
               }`}
             />
-            
-            {/* Emoji suggestion */}
+
             {suggestedEmoji && (
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
@@ -154,15 +148,13 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
               >
                 <Plus className="h-5 w-5 mr-2 transition-transform group-hover/btn:rotate-90" />
                 Add
-                
-                {/* Shimmer effect on hover */}
+
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
               </Button>
             </motion.div>
           </div>
         </div>
-        
-        {/* Floating sparkles when focused */}
+
         {isFocused && (
           <motion.div 
             initial={{ opacity: 0, scale: 0 }}
@@ -173,8 +165,7 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
             <Sparkles className="h-4 w-4 text-purple-500 animate-bounce" />
           </motion.div>
         )}
-        
-        {/* Unicorn hint */}
+
         {title.toLowerCase().includes('unicorn') && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -185,7 +176,6 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
           </motion.div>
         )}
 
-        {/* Emoji suggestion hint */}
         {suggestedEmoji && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -197,8 +187,7 @@ const TodoInput = ({ onAdd, onUnicornTrigger }: TodoInputProps) => {
           </motion.div>
         )}
       </form>
-      
-      {/* Helper text */}
+
       <p className="text-xs text-muted-foreground mt-2 ml-1 font-medium">
         Press Enter to add a task • Try typing "unicorn" for a surprise! 🦄
       </p>

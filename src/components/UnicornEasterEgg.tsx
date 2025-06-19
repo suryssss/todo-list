@@ -31,12 +31,11 @@ const UnicornEasterEgg = ({ trigger, onComplete }: UnicornEasterEggProps) => {
           className="fixed inset-0 pointer-events-none z-50"
         >
           <div className="relative">
-            {/* Unicorn */}
+
             <div className="absolute text-6xl animate-bounce">
               🦄
             </div>
-            
-            {/* Rainbow trail */}
+
             <div className="absolute top-0 left-0 w-full h-full">
               <div className="absolute text-2xl animate-pulse" style={{ animationDelay: '0.5s' }}>
                 🌈
@@ -48,8 +47,7 @@ const UnicornEasterEgg = ({ trigger, onComplete }: UnicornEasterEggProps) => {
                 💫
               </div>
             </div>
-            
-            {/* Sparkles */}
+
             <div className="absolute top-4 left-4 text-xl animate-spin">
               ⭐
             </div>

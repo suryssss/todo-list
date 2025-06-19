@@ -3,11 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
   :root {
-    /* Playful Color Palette */
     --soft-purple: 147 51 234;
     --pastel-pink: 236 72 153;
     --electric-blue: 59 130 246;
@@ -205,7 +203,6 @@
     font-family: 'Press Start 2P', 'Courier New', monospace;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -221,22 +218,20 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-400;
   }
-
-  /* Fun mode scrollbar */
   .fun-mode ::-webkit-scrollbar-thumb {
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
     background-size: 300% 300%;
     animation: gradient-shift 3s ease infinite;
   }
 
-  /* Candy mode scrollbar */
+
   .candy-mode ::-webkit-scrollbar-thumb {
     background: linear-gradient(45deg, #ff69b4, #87ceeb, #dda0dd, #98fb98);
     background-size: 300% 300%;
     animation: gradient-shift 3s ease infinite;
   }
 
-  /* Retro mode scrollbar */
+
   .retro-mode ::-webkit-scrollbar-thumb {
     background: #00ff00;
     box-shadow: 0 0 10px #00ff00;
@@ -244,7 +239,7 @@
 }
 
 @layer components {
-  /* Playful Color Classes */
+
   .soft-purple { @apply bg-purple-200 text-purple-800; }
   .pastel-pink { @apply bg-pink-200 text-pink-800; }
   .electric-blue { @apply bg-blue-200 text-blue-800; }
@@ -256,7 +251,7 @@
   .coral { @apply bg-rose-200 text-rose-800; }
   .sky { @apply bg-sky-200 text-sky-800; }
 
-  /* Glass morphism effect */
+
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
@@ -265,7 +260,7 @@
     @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl;
   }
 
-  /* Gradient text */
+
   .gradient-text {
     @apply bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent;
   }
@@ -293,8 +288,6 @@
     -webkit-text-fill-color: transparent;
     animation: gradient-shift 2s ease infinite;
   }
-
-  /* Floating animation */
   .float {
     animation: float 6s ease-in-out infinite;
   }
@@ -308,7 +301,6 @@
     }
   }
 
-  /* Pulse glow effect */
   .pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite alternate;
   }
@@ -322,7 +314,6 @@
     }
   }
 
-  /* Candy mode glow */
   .candy-glow {
     animation: candy-glow 2s ease-in-out infinite alternate;
   }
@@ -336,7 +327,6 @@
     }
   }
 
-  /* Retro mode glow */
   .retro-glow {
     animation: retro-glow 1s ease-in-out infinite alternate;
   }
@@ -350,7 +340,6 @@
     }
   }
 
-  /* Slide in animation */
   .slide-in {
     animation: slideIn 0.5s ease-out;
   }
@@ -366,7 +355,6 @@
     }
   }
 
-  /* Fade in animation */
   .fade-in {
     animation: fadeIn 0.6s ease-out;
   }
@@ -380,7 +368,6 @@
     }
   }
 
-  /* Scale in animation */
   .scale-in {
     animation: scaleIn 0.4s ease-out;
   }
@@ -396,7 +383,6 @@
     }
   }
 
-  /* Bounce animation */
   .bounce-in {
     animation: bounceIn 0.6s ease-out;
   }
@@ -419,7 +405,6 @@
     }
   }
 
-  /* Shimmer effect */
   .shimmer {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     background-size: 200% 100%;
@@ -435,7 +420,6 @@
     }
   }
 
-  /* Hover lift effect */
   .hover-lift {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -445,7 +429,6 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
-  /* Professional button styles */
   .btn-primary {
     @apply bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2;
   }
@@ -454,12 +437,10 @@
     @apply bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
   }
 
-  /* Candy mode buttons */
   .candy-btn-primary {
     @apply bg-gradient-to-r from-pink-400 to-blue-400 hover:from-pink-500 hover:to-blue-500 text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2;
   }
 
-  /* Retro mode buttons */
   .retro-btn-primary {
     @apply bg-black border-2 border-green-400 text-green-400 font-mono px-6 py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
@@ -469,28 +450,24 @@
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
   }
 
-  /* Professional input styles */
   .input-professional {
     @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm;
   }
 
-  /* Candy mode input */
+
   .candy-input {
     @apply w-full px-4 py-3 border-2 border-pink-200 rounded-2xl focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all duration-300 bg-pink-50/80 backdrop-blur-sm;
   }
 
-  /* Retro mode input */
   .retro-input {
     @apply w-full px-4 py-3 border-2 border-green-400 bg-black text-green-400 font-mono focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300;
     box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
   }
 
-  /* Card styles */
   .card-professional {
     @apply bg-white/90 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
-  /* Candy mode card */
   .candy-card {
     @apply bg-gradient-to-br from-pink-50 to-blue-50 border-2 border-pink-200 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300;
     background-image: 
@@ -498,7 +475,6 @@
       radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.1) 0%, transparent 50%);
   }
 
-  /* Retro mode card */
   .retro-card {
     @apply bg-black border-2 border-green-400 shadow-lg hover:shadow-xl transition-all duration-300;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
@@ -508,7 +484,6 @@
     box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
   }
 
-  /* Fun mode styles */
   .fun-mode .card-professional {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
     border: 2px solid transparent;
@@ -533,7 +508,6 @@
     mask-composite: exclude;
   }
 
-  /* Rainbow trail effect */
   .rainbow-trail {
     position: relative;
     overflow: hidden;
@@ -559,7 +533,6 @@
     }
   }
 
-  /* Unicorn animation */
   .unicorn-fly {
     animation: unicornFly 3s ease-in-out;
   }
@@ -581,7 +554,6 @@
     }
   }
 
-  /* Sparkle effect */
   .sparkle {
     position: relative;
   }
@@ -617,7 +589,6 @@
     }
   }
 
-  /* XP Badge styles */
   .xp-badge {
     @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
   }
@@ -634,7 +605,6 @@
     @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
   }
 
-  /* Streak fire animation */
   .streak-fire {
     animation: streakFire 1s ease-in-out infinite alternate;
   }
@@ -648,7 +618,6 @@
     }
   }
 
-  /* Motivational message animation */
   .motivational-message {
     animation: motivationalPop 2s ease-out;
   }
@@ -668,7 +637,6 @@
     }
   }
 
-  /* XP Counter Animation */
   .xp-counter {
     animation: xpCount 1s ease-out;
   }
@@ -685,7 +653,6 @@
     }
   }
 
-  /* Progress Bar Sparkles */
   .progress-sparkle {
     position: relative;
     overflow: hidden;
@@ -713,8 +680,6 @@
       opacity: 0;
     }
   }
-
-  /* Candy sprinkles */
   .candy-sprinkles {
     position: relative;
   }
@@ -743,8 +708,6 @@
       transform: rotate(180deg) scale(1.2);
     }
   }
-
-  /* Retro scanlines */
   .retro-scanlines {
     position: relative;
   }

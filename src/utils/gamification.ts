@@ -1,4 +1,3 @@
-// XP and Badge System
 export interface UserProgress {
   xp: number;
   streak: number;
@@ -51,7 +50,6 @@ export const LEVEL_THRESHOLDS = {
   MYTHIC: 2000,
 } as const;
 
-// Theme System
 export const THEMES = {
   LIGHT: 'light',
   DARK: 'dark',
@@ -88,7 +86,6 @@ export const THEME_CONFIGS = {
   },
 } as const;
 
-// Emoji Suggestions for Tasks
 export const EMOJI_SUGGESTIONS: Record<string, string> = {
   // Shopping
   'buy': '🛒', 'milk': '🥛', 'bread': '🍞', 'food': '🍕', 'grocery': '🛍️',
@@ -106,7 +103,6 @@ export const EMOJI_SUGGESTIONS: Record<string, string> = {
   'task': '📝', 'todo': '✅', 'important': '⚠️', 'urgent': '🚨', 'idea': '💡', 'note': '📝',
 };
 
-// Motivational Messages
 export const MOTIVATIONAL_MESSAGES = [
   "Great job! 🎉",
   "You're on fire! 🔥",
@@ -130,14 +126,12 @@ export const MOTIVATIONAL_MESSAGES = [
   "Phenomenal! 🌟",
 ];
 
-// Local Storage Keys
 const STORAGE_KEYS = {
   USER_PROGRESS: 'todoflow_user_progress',
   THEME: 'todoflow_theme',
   TASKS: 'todoflow_tasks',
 } as const;
 
-// Initialize user progress
 export const initializeUserProgress = (): UserProgress => ({
   xp: 0,
   streak: 0,
@@ -150,7 +144,6 @@ export const initializeUserProgress = (): UserProgress => ({
   lastWeekReset: new Date().toDateString(),
 });
 
-// Load user progress from localStorage
 export const loadUserProgress = (): UserProgress => {
   try {
     const stored = localStorage.getItem(STORAGE_KEYS.USER_PROGRESS);
@@ -172,7 +165,6 @@ export const loadUserProgress = (): UserProgress => {
   }
 };
 
-// Save user progress to localStorage
 export const saveUserProgress = (progress: UserProgress): void => {
   try {
     localStorage.setItem(STORAGE_KEYS.USER_PROGRESS, JSON.stringify(progress));
@@ -187,7 +179,7 @@ export const addXP = (amount: number, currentProgress: UserProgress): UserProgre
   const newWeeklyXP = currentProgress.weeklyXP + amount;
   const newBadges = [...currentProgress.badges];
   
-  // Check for new badges
+
   if (newXP >= BADGE_THRESHOLDS.DIAMOND && !newBadges.includes(BADGE_NAMES.DIAMOND)) {
     newBadges.push(BADGE_NAMES.DIAMOND);
   } else if (newXP >= BADGE_THRESHOLDS.PLATINUM && !newBadges.includes(BADGE_NAMES.PLATINUM)) {
@@ -208,13 +200,12 @@ export const addXP = (amount: number, currentProgress: UserProgress): UserProgre
   };
 };
 
-// Update streak when task is completed
 export const updateStreak = (currentProgress: UserProgress): UserProgress => {
   const today = new Date().toDateString();
   const lastDate = currentProgress.lastCompletionDate;
   
   if (!lastDate) {
-    // First completion
+  
     return {
       ...currentProgress,
       streak: 1,
@@ -228,10 +219,10 @@ export const updateStreak = (currentProgress: UserProgress): UserProgress => {
   const daysDifference = Math.floor((todayDate.getTime() - lastCompletionDate.getTime()) / (1000 * 60 * 60 * 24));
 
   if (daysDifference === 0) {
-    // Already completed today
+  
     return currentProgress;
   } else if (daysDifference === 1) {
-    // Consecutive day
+
     const newStreak = currentProgress.streak + 1;
     return {
       ...currentProgress,
@@ -240,7 +231,7 @@ export const updateStreak = (currentProgress: UserProgress): UserProgress => {
       lastCompletionDate: today,
     };
   } else {
-    // Streak broken
+
     return {
       ...currentProgress,
       streak: 1,
@@ -249,13 +240,13 @@ export const updateStreak = (currentProgress: UserProgress): UserProgress => {
   }
 };
 
-// Get random motivational message
+
 export const getRandomMotivationalMessage = (): string => {
   const randomIndex = Math.floor(Math.random() * MOTIVATIONAL_MESSAGES.length);
   return MOTIVATIONAL_MESSAGES[randomIndex];
 };
 
-// Get current badge based on XP
+
 export const getCurrentBadge = (xp: number): string => {
   if (xp >= BADGE_THRESHOLDS.DIAMOND) return BADGE_NAMES.DIAMOND;
   if (xp >= BADGE_THRESHOLDS.PLATINUM) return BADGE_NAMES.PLATINUM;
@@ -265,7 +256,7 @@ export const getCurrentBadge = (xp: number): string => {
   return '🌱 Beginner';
 };
 
-// Get current level title
+
 export const getCurrentLevel = (xp: number): string => {
   if (xp >= LEVEL_THRESHOLDS.MYTHIC) return LEVEL_TITLES.MYTHIC;
   if (xp >= LEVEL_THRESHOLDS.LEGEND) return LEVEL_TITLES.LEGEND;
@@ -275,7 +266,7 @@ export const getCurrentLevel = (xp: number): string => {
   return LEVEL_TITLES.NEWBIE;
 };
 
-// Get progress to next badge
+
 export const getProgressToNextBadge = (xp: number): { current: number; target: number; percentage: number } => {
   if (xp >= BADGE_THRESHOLDS.DIAMOND) {
     return { current: xp, target: BADGE_THRESHOLDS.DIAMOND, percentage: 100 };
@@ -312,7 +303,7 @@ export const getProgressToNextLevel = (xp: number): { current: number; target: n
   return { current: progress, target, percentage, nextLevel };
 };
 
-// Suggest emoji for task
+
 export const suggestEmojiForTask = (taskText: string): string => {
   const words = taskText.toLowerCase().split(' ');
   
@@ -321,8 +312,7 @@ export const suggestEmojiForTask = (taskText: string): string => {
       return EMOJI_SUGGESTIONS[word];
     }
   }
-  
-  // Default emoji based on task length or common patterns
+
   if (taskText.length < 10) return '📝';
   if (taskText.includes('buy') || taskText.includes('shop')) return '🛒';
   if (taskText.includes('work') || taskText.includes('meeting')) return '💼';
@@ -333,7 +323,6 @@ export const suggestEmojiForTask = (taskText: string): string => {
   return '📝';
 };
 
-// Theme management
 export const getStoredTheme = (): string => {
   try {
     return localStorage.getItem(STORAGE_KEYS.THEME) || THEMES.LIGHT;
@@ -350,7 +339,6 @@ export const saveTheme = (theme: string): void => {
   }
 };
 
-// Task persistence
 export const saveTasks = (tasks: any[]): void => {
   try {
     localStorage.setItem(STORAGE_KEYS.TASKS, JSON.stringify(tasks));

@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <header className="relative py-16 px-6 md:px-10 text-center">
-      {/* Theme Selector */}
+
       <div className="absolute top-4 right-4 z-10">
         <ThemeSelector currentTheme={theme || 'light'} onThemeChange={setTheme} />
       </div>
@@ -59,12 +59,12 @@ const Header = () => {
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center"
       >
-        {/* Icon with glow */}
+
         <div className={`mb-4 ${getGlowClass()}`}>
           <CheckCircle2 className="h-12 w-12 text-indigo-500" />
         </div>
 
-        {/* Main Heading */}
+
         <motion.h1
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -74,7 +74,6 @@ const Header = () => {
           TodoFlow
         </motion.h1>
 
-        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,7 +83,6 @@ const Header = () => {
           Your minimalist task manager for focused productivity.
         </motion.p>
 
-        {/* Animated Line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
@@ -92,7 +90,6 @@ const Header = () => {
           className={`origin-left mt-5 h-1 w-24 rounded-full ${getLineClass()}`}
         />
 
-        {/* Shimmer subtitle */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -102,7 +99,7 @@ const Header = () => {
           ✨ Clean, powerful, and theme-aware
         </motion.p>
 
-        {/* Theme Label */}
+
         {theme && theme !== 'light' && theme !== 'dark' && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}

@@ -9,7 +9,6 @@ interface ConfettiCelebrationProps {
 const ConfettiCelebration = ({ trigger, onComplete }: ConfettiCelebrationProps) => {
   useEffect(() => {
     if (trigger) {
-      // Create multiple confetti bursts
       const duration = 3000;
       const end = Date.now() + duration;
 
