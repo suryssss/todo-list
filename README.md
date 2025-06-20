@@ -7,13 +7,7 @@ This isn't just a basic to-do app — it's packed with features and crafted with
 
 ## 🚀 Live Demo
 
-👉 [Check it out on Vercel](https://todo-list-zeta-ecru.vercel.app/)
-
----
-
-## 📸 Preview
-
-![TodoFlow Preview](preview.gif) <!-- Replace with a real screenshot or screen recording gif -->
+👉 [Check it out on Vercel](https://todo-list-beta-sooty.vercel.app/)
 
 ---
 
