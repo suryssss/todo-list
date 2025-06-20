@@ -28,7 +28,7 @@ This isn't just a basic to-do app — it's packed with features and crafted with
 - 💅 Smooth UI with modern design
 - 💻 Fully responsive across all screen sizes
 - ⚡️ Fast load time and optimized build
-- 🎨 Dark/light theme support *(optional if implemented)*
+- 🎨 Dark/light theme support
 - 📦 Component-based architecture
 
 ---
